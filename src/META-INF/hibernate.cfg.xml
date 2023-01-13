@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hibernate.use_sql_comments" >false</property>
+		<property name="hbm2ddl.auto">update</property>
+		
+		<!-- Livro
+		
+		<mapping class="br.com.graphvs.ntrack.model.domain.Cliente" />
+		<mapping class="br.com.graphvs.ntrack.model.domain.Motorista" />
+		<mapping class="br.com.graphvs.ntrack.model.domain.Autenticacao" />
+		<mapping class="br.com.graphvs.ntrack.model.domain.Rastreamento" />
+		<mapping class="br.com.graphvs.ntrack.model.domain.Rota" />
+		<mapping class="br.com.graphvs.ntrack.model.domain.Atendimento" />
+		<mapping class="br.com.graphvs.ntrack.model.domain.Visita" />
+		<mapping class="br.com.graphvs.ntrack.model.domain.ColetaAterro" />
+		<mapping class="br.com.graphvs.ntrack.model.domain.ColetaSequencial" />
+		
+		 -->
+		
+	</session-factory>
+</hibernate-configuration>
+
