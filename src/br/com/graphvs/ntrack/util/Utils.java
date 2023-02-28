@@ -148,5 +148,47 @@ public class Utils {
 			ret = "0" + ret;
 		return ret;
 	}
+	
+	public static String somaHorasTrabalhadas(String duracao1, String duracao2) {
+		String sh1 = duracao1.split(" ")[0].replace("h", "");
+		String sm1 = duracao1.split(" ")[1].replace("m", "");
+		String ss1 = duracao1.split(" ")[2].replace("s", "");
+		String sh2 = duracao2.split(" ")[0].replace("h", "");
+		String sm2 = duracao2.split(" ")[1].replace("m", "");
+		String ss2 = duracao2.split(" ")[2].replace("s", "");
+
+		int h1 = Integer.parseInt(sh1);
+		int m1 = Integer.parseInt(sm1);
+		int s1 = Integer.parseInt(ss1);
+		int h2 = Integer.parseInt(sh2);
+		int m2 = Integer.parseInt(sm2);
+		int s2 = Integer.parseInt(ss2);
+
+		int hf = 0;
+		int mf = 0;
+		int sf = 0;
+
+		int restoSegundo = 0;
+		if (s1 + s2 > 59) {
+			sf = 0;
+			restoSegundo = 1;
+		} else
+			sf = s1 + s2;
+
+		int restoMinuto = 0;
+		if (m1 + m2 + restoSegundo > 59) {
+			mf = 0;
+			restoMinuto = 1;
+		} else
+			mf = m1 + m2 + restoSegundo;
+
+		hf = h1 + h2 + restoMinuto;
+
+		String total = hf + "h " + mf + "m " + sf + "s";
+
+		return total;
+	}
+
+
 
 }

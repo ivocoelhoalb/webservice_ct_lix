@@ -13,7 +13,7 @@ import br.com.graphvs.ntrack.util.JPAUtil;
 public class RotaDAO implements IRestApi<Rota> {
 
 	private final String SQL1 = "FROM Rota";
-	private final String SQL2 = "FROM Rota WHERE dataincio < NOW() and datafim > NOW() AND motorista_id = :motoristaId ";
+	private final String SQL2 = "FROM Rota WHERE datainicio < NOW() and datafim > NOW() AND motorista_id = :motoristaId ";
 	private final String SQL3 = "FROM Rota WHERE DATE(data) = :data and motorista_id = :motoristaId";
 	private final String SQL4 = "SELECT setor_externo_id FROM Rota WHERE data = :data";
 

@@ -100,9 +100,10 @@ public class RastreamentoDAO implements IRestApi<Rastreamento> {
 				
 				if(dist < 100){
 					RastreamentoLigth ligth = new RastreamentoLigth();
-					ligth.setLatitude(rastreamentos.get(i + 1).getLatitude());
-					ligth.setLongitude(rastreamentos.get(i + 1).getLongitude());
-					ligth.setData(rastreamentos.get(i + 1).getData());
+					ligth.setLat(rastreamentos.get(i + 1).getLatitude());
+					ligth.setLon(rastreamentos.get(i + 1).getLongitude());
+					ligth.setDt(rastreamentos.get(i + 1).getData());
+					ligth.setSpd(rastreamentos.get(i + 1).getVelocidade());
 					rastreamentosFiltrados.add( ligth);
 				}
 			}

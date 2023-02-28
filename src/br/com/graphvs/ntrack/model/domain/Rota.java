@@ -22,7 +22,7 @@ public class Rota {
 	private String setor_externo_id;
 	private Long veiculo_id;
 	private String data;
-	private Date dataIncio;
+	private Date dataInicio;
 	private Date dataFim;
 	
 	
@@ -65,11 +65,11 @@ public class Rota {
 	public void setSetor_externo_id(String setor_externo_id) {
 		this.setor_externo_id = setor_externo_id;
 	}
-	public Date getDataIncio() {
-		return dataIncio;
+	public Date getDataInicio() {
+		return dataInicio;
 	}
-	public void setDataIncio(Date dataIncio) {
-		this.dataIncio = dataIncio;
+	public void setDataInicio(Date dataIncio) {
+		this.dataInicio = dataIncio;
 	}
 	public Date getDataFim() {
 		return dataFim;

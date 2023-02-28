@@ -2,38 +2,60 @@ package br.com.graphvs.ntrack.model.domain;
 
 public class RastreamentoLigth {
 
-	private double latitude;
-	private double longitude;
-	private String data;
+	private double lat;
+	private double lon;
+	private String dt;
+	private int spd;
 	
+	
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLon() {
+		return lon;
+	}
+
+	public void setLon(double lon) {
+		this.lon = lon;
+	}
+
+	public String getDt() {
+		return dt;
+	}
+
+	public void setDt(String dt) {
+		this.dt = dt;
+	}
+
+	public int getSpd() {
+		return spd;
+	}
+
+	public void setSpd(int spd) {
+		this.spd = spd;
+	}
+
 	public RastreamentoLigth() {
 
 	}
 
-	public String getData() {
-		return data;
-	}
 
 
-	public void setData(String data) {
-		this.data = data;
-	}
 
-	public double getLatitude() {
-		return latitude;
-	}
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
 
-	public double getLongitude() {
-		return longitude;
-	}
+	
 
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
+	
+
+	
+
+	
 
 	
 	

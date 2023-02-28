@@ -111,8 +111,7 @@ public class CircuitoResumoDAO {
 				cargaColetada += coleta.getQuantidade();
 			}
 
-			if (LOG)
-				System.out.println("----Calculando distancia para coletas...");
+	
 
 			// Calcula pontos coletados de acordo com a distancia
 			List<Sequencial> sequenciaisColetados = new ArrayList<>();
@@ -127,8 +126,7 @@ public class CircuitoResumoDAO {
 					}
 				}
 			}
-			if (LOG)
-				System.out.println("----Distancia de coletas calculadas.");
+			
 
 			if (circuitoResumeExistente != null) {
 				em.getTransaction().begin();
