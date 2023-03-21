@@ -50,17 +50,17 @@ public class LogAcesso {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getMotoristaId() {
+	public Long getMotorista_id() {
 		return motorista_id;
 	}
-	public void setMotoristaId(Long idMotorista) {
+	public void setMotorista_id(Long idMotorista) {
 		this.motorista_id = idMotorista;
 	}
 	
-	public Long getGestorId() {
+	public Long getGestor_id() {
 		return gestor_id;
 	}
-	public void setGestorId(Long idGestor) {
+	public void setGestor_id(Long idGestor) {
 		this.gestor_id = idGestor;
 	}
 	public String getLogin() {

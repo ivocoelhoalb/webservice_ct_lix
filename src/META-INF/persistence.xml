@@ -16,8 +16,8 @@
 
 			<!-- Propriedades para conexão com o banco de dados -->
 			
-		    <!-- PILOTO  -->
-			<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_piloto?createDatabaseIfNotExist=true" />  
+		    <!-- ATUALIZAR BANCO AQUI  -->
+			<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_conservita_jales?createDatabaseIfNotExist=true" />  
 		
 			<property name="javax.persistence.jdbc.password" value="sisgraphlix" />  			
 			<property name="javax.persistence.jdbc.user" value="lix" />
@@ -45,34 +45,10 @@
 
 
 <!--
+
+lix_piloto
+lix_conservita_andradina
+lix_conservita_jales
 				
-	//PILOTO 		
-	<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_piloto?createDatabaseIfNotExist=true" />  
-	
-	//CORE 
-	<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_core?createDatabaseIfNotExist=true" />
-	
-	//PILOTO
-	<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/core_novo?createDatabaseIfNotExist=true" /> 
-	
-	//DEV
-	<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_dev?createDatabaseIfNotExist=true" />
-	
-	//MARICA
-	<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_hml_marica_somar?createDatabaseIfNotExist=true" /> 
-	
-	//PETROPOLIS
-	<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_hml_petropolis_forcaambiental?createDatabaseIfNotExist=true" />
-	
-	//PETROPOLIS BETA
-	<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_petropolis_forcaambiental?createDatabaseIfNotExist=true" />
-			 
-			  
-<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://177.65.97.50:3306/lix?createDatabaseIfNotExist=true" />
-<property name="javax.persistence.jdbc.user" value="ctlix" />
-<property name="javax.persistence.jdbc.password" value="sisgraphlix" /> 
-	
-<property name="javax.persistence.jdbc.user" value="ctlix" />
-<property name="javax.persistence.jdbc.password" value="admin" /> 
-<property name="javax.persistence.jdbc.password" value="sisgraphlix" /> 
+ 
 -->
