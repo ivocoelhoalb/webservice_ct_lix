@@ -17,7 +17,7 @@
 			<!-- Propriedades para conexão com o banco de dados -->
 			
 		    <!-- ATUALIZAR BANCO AQUI  -->
-			<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_conservita_jales?createDatabaseIfNotExist=true" />  
+			<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_desenv?createDatabaseIfNotExist=true" />  
 		
 			<property name="javax.persistence.jdbc.password" value="sisgraphlix" />  			
 			<property name="javax.persistence.jdbc.user" value="lix" />

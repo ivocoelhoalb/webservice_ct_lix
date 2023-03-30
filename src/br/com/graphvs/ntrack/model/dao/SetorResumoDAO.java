@@ -50,6 +50,7 @@ public class SetorResumoDAO {
 					setorResumoExistente.setTotalCircuitos(setorResumoCalculado.getTotalCircuitos());
 					setorResumoExistente.setRota_id(setorResumoCalculado.getRota_id());
 					setorResumoExistente.setDuracao(setorResumoCalculado.getDuracao());
+					setorResumoExistente.setUltimaAtualizacao(setorResumoCalculado.getUltimaAtualizacao());
 					em.getTransaction().commit();
 					if (LOG)
 						System.out.println("-Atualizando SETOR " + setor.getExterno_id() + " na base");
@@ -99,6 +100,7 @@ public class SetorResumoDAO {
 		int coletasPrevistos = 0;
 		int coletasRealizadas = 0;
 		int cargaColetada = 0;
+		String ultimaAtualizacao = "0000-00-20T00:00:00";
 
 		CircuitoResumoDAO circuitoResumoDAO = new CircuitoResumoDAO();
 
@@ -117,6 +119,8 @@ public class SetorResumoDAO {
 			coletasRealizadas += circuitoResumo.getSegmentosRealizados();
 			cargaColetada += circuitoResumo.getCargaColetada();
 			duracaoFinal = Utils.somaHorasTrabalhadas(duracaoFinal, circuitoResumo.getDuracao());
+			ultimaAtualizacao = Utils.comparaMaiorData(ultimaAtualizacao, circuitoResumo.getUltimaAtualizacao());
+			
 
 		}
 		SetorResume setorResume = new SetorResume();
@@ -139,6 +143,8 @@ public class SetorResumoDAO {
 		setorResume.setRota_id(setor.getRota_id());
 
 		setorResume.setDuracao(duracaoFinal);
+		
+		setorResume.setUltimaAtualizacao(ultimaAtualizacao);
 
 		setorResume.setData(data);
 		return setorResume;

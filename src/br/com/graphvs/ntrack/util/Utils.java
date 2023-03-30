@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import br.com.graphvs.ntrack.model.domain.Rastreamento;
 
 public class Utils {
-	
+
 	public static String incrementaDataInciailD1(String dataIncial) {
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -26,7 +26,7 @@ public class Utils {
 		return format.format(myDate);
 
 	}
-	
+
 	public static String decrementaDataInciailD1(String dataIncial) {
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -42,7 +42,7 @@ public class Utils {
 		return format.format(myDate);
 
 	}
-	
+
 	public static Date stringToDate(String dataIncial) {
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -68,15 +68,13 @@ public class Utils {
 		String strDate = sdfDate.format(now);
 		return strDate;
 	}
-	
+
 	public static String getDate() {
 		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");// dd/MM/yyyy
 		Date now = new Date();
 		String strDate = sdfDate.format(now);
 		return strDate;
 	}
-	
-	
 
 	public static Date addDays(Date date, int days) {
 		Calendar cal = Calendar.getInstance();
@@ -148,7 +146,7 @@ public class Utils {
 			ret = "0" + ret;
 		return ret;
 	}
-	
+
 	public static String somaHorasTrabalhadas(String duracao1, String duracao2) {
 		String sh1 = duracao1.split(" ")[0].replace("h", "");
 		String sm1 = duracao1.split(" ")[1].replace("m", "");
@@ -189,6 +187,11 @@ public class Utils {
 		return total;
 	}
 
-
+	public static String comparaMaiorData(String ultimaAtualizacao, String ultimaAtualizacao2) {
+		if(ultimaAtualizacao.compareTo(ultimaAtualizacao2)>0)
+			return ultimaAtualizacao;
+		
+		return ultimaAtualizacao2;
+	}
 
 }

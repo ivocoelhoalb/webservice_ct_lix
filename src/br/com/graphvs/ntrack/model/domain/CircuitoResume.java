@@ -31,12 +31,13 @@ public class CircuitoResume {
 	private double latfinal;
 	private double lonfinal;
 	private String data;
+	private String ultimaAtualizacao;
 	
 	
 	
 	public CircuitoResume(Long id, Long codigoCircuito, String codigoExterno, double kmPrevisto, double kmRealizado,
 			int segmentos, int segmentosRealizados, double cargaColetada, String duracao, int viagem, double latinicial,
-			double loninicial, double latfinal, double lonfinal, String data, Long codigoSetor, Long rotaId) {
+			double loninicial, double latfinal, double lonfinal, String data, String ultimaAtualizacao,Long codigoSetor, Long rotaId) {
 		super();
 		this.id = id;
 		this.codigoCircuito = codigoCircuito;
@@ -53,6 +54,7 @@ public class CircuitoResume {
 		this.latfinal = latfinal;
 		this.lonfinal = lonfinal;
 		this.data = data;
+		this.ultimaAtualizacao = ultimaAtualizacao;
 		this.codigoSetor = codigoSetor;
 		this.rota_id = rotaId;
 	}
@@ -60,6 +62,20 @@ public class CircuitoResume {
 	
 	
 	
+	public String getUltimaAtualizacao() {
+		return ultimaAtualizacao;
+	}
+
+
+
+
+	public void setUltimaAtualizacao(String ultimaAtualizacao) {
+		this.ultimaAtualizacao = ultimaAtualizacao;
+	}
+
+
+
+
 	public CircuitoResume() {
 		// TODO Auto-generated constructor stub
 	}

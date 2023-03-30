@@ -96,10 +96,13 @@ public class CircuitoResumoDAO {
 				distanciaPlanejada += percurso.getDistancia();
 			}
 
+			String ultimaAtualizacao = "00:00:00";
 			double distanciaExecutada = 0;
 			int quantidadeRastreamentos = rastreamentos.size();
-			if (!rastreamentos.isEmpty())
+			if (!rastreamentos.isEmpty()) {
 				distanciaExecutada = Utils.calculaDistancia(rastreamentos);
+				ultimaAtualizacao = rastreamentos.get(quantidadeRastreamentos - 1).getData();
+			}
 
 			String duracao = "00h 00m 00s";
 			if (!rastreamentos.isEmpty())
@@ -144,8 +147,10 @@ public class CircuitoResumoDAO {
 				circuitoResumeExistente.setKmRealizado(distanciaExecutada);
 				circuitoResumeExistente.setDuracao(duracao);
 				circuitoResumeExistente.setData(data);
+				circuitoResumeExistente.setUltimaAtualizacao(ultimaAtualizacao);
 				circuitoResumeExistente.setCodigoSetor(setor.getId());
 				circuitoResumeExistente.setRota_id(setor.getRota_id());
+				
 				em.getTransaction().commit();
 				if (LOG)
 					System.out.println("-Atualizando CIRCUITO "+circuitoResumeExistente.getCodigoExterno()+" na base");
@@ -166,6 +171,7 @@ public class CircuitoResumoDAO {
 				circuitoResume.setKmRealizado(distanciaExecutada);
 				circuitoResume.setDuracao(duracao);
 				circuitoResume.setData(data);
+				circuitoResume.setUltimaAtualizacao(ultimaAtualizacao);
 				circuitoResume.setCodigoSetor(setor.getId());
 				circuitoResume.setRota_id(setor.getRota_id());
 				
