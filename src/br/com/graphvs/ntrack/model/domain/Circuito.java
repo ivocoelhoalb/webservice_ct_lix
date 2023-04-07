@@ -26,12 +26,7 @@ public class Circuito implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	private String externo_id;
 	
-	private Long setor_id;
-	
-
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "circuito_id")
 	private List<Percurso> percursos = new ArrayList<>();
@@ -40,6 +35,9 @@ public class Circuito implements Serializable {
 	@JoinColumn(name = "circuito_id")
 	private List<Sequencial> sequenciais = new ArrayList<>();
 
+
+	private String externo_id;
+	private Long setor_id;
 	private int viagem;
 	private double latinicial;
 	private double loninicial;

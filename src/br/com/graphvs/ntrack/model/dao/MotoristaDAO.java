@@ -93,7 +93,6 @@ public class MotoristaDAO implements IRestApi<Motorista> {
 			motoristaManaged.setLatitude(motorista.getLatitude());
 			motoristaManaged.setLongitude(motorista.getLongitude());
 			motoristaManaged.setData(motorista.getData());
-			motoristaManaged.setClientes(motorista.getClientes());
 			em.getTransaction().commit();
 		} catch (NullPointerException ex) {
 			em.getTransaction().rollback();
@@ -168,7 +167,7 @@ public class MotoristaDAO implements IRestApi<Motorista> {
 		}
 
 		if (motorista == null) {
-			throw new DAOException("Motorista de id " + id + " não existe.", ErrorCode.NOT_FOUND.getStatusCode());
+			throw new DAOException("Motorista de id " + id + " não cadastrado na base de motoristas.", ErrorCode.NOT_FOUND.getStatusCode());
 		}
 
 		return motorista;
@@ -250,6 +249,9 @@ public class MotoristaDAO implements IRestApi<Motorista> {
 			motoristaManaged.setLatitude(motorista.getLatitude());
 			motoristaManaged.setLongitude(motorista.getLongitude());
 			motoristaManaged.setData(motorista.getData());
+			motoristaManaged.setPrecisao(motorista.getPrecisao());
+			motoristaManaged.setProximidade(motorista.getProximidade());
+			motoristaManaged.setSeguirRota(motorista.isSeguirRota());
 			
 			em.getTransaction().commit();
 		} catch (NullPointerException ex) {

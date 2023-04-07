@@ -54,5 +54,11 @@ public class MotoristaResource implements IRestApi<Motorista> {
 	public List<Motorista> listaMotoristas(@PathParam("data") String data) {
 		return service.getMotoristaComRota(data);
 	}
+	
+	@GET
+	@Path("/{id}")
+	public Motorista listaMotorista(@PathParam("id") Long id) {
+		return service.getMotoristaId(id);
+	}
 
 }
