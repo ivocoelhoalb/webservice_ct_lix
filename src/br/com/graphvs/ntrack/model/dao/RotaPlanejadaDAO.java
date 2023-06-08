@@ -144,26 +144,6 @@ public class RotaPlanejadaDAO implements IRestApi<RotaPlanejada> {
 
 	}
 
-//	public ArrayList<Setor> getRotaComData(String data) {
-//		List<Setor> setores = setorDAO.listPorData(data);
-//
-//		for (Setor setor : setores) {
-//			List<Circuito> circuitos = circuitoDAO.listPeloSetor(setor.getId());
-//
-//			if (!circuitos.isEmpty()) {
-//				for (Circuito circuito : circuitos) {
-//					List<Percurso> percursos = percursoDAO.list(circuito.getId());
-//					List<Sequencial> sequenciais = sequencialDAO.list(circuito.getId());
-//					circuito.setPercursos(percursos);
-//					circuito.setSequenciais(sequenciais);
-//				}
-//				setor.setCircuitos(circuitos);
-//			}
-//			return (ArrayList<Setor>) setores;
-//
-//		}
-//		return new ArrayList<Setor>();
-//	}
 
 	public ArrayList<SetorResume> getRotaSetorResume(String data) {
 
@@ -268,6 +248,28 @@ public class RotaPlanejadaDAO implements IRestApi<RotaPlanejada> {
 		EntityManager em = JPAUtil.getEntityManager();
 
 		String SQL = "FROM SetorResume WHERE DATE(data) ='" + data + "'";
+
+		List<SetorResume> rotas = null;
+		try {
+			rotas = em.createQuery(SQL, SetorResume.class).getResultList();
+		} catch (RuntimeException ex) {
+			throw new DAOException(ERRO1 + ex.getMessage(), ErrorCode.SERVER_ERROR.getStatusCode());
+		} finally {
+			em.close();
+		}
+
+		return (ArrayList<SetorResume>) rotas;
+
+	}
+	
+	
+	public ArrayList<SetorResume> getRotaSetorResumeV2(String data, Long fiscalId) {
+
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		
+
+		String SQL = "FROM SetorResume WHERE DATE(data) ='" + data + "' and codigoExterno IN(SELECT codigoExterno FROM fiscalsetor WHERE fiscal_id = " +fiscalId+")";
 
 		List<SetorResume> rotas = null;
 		try {

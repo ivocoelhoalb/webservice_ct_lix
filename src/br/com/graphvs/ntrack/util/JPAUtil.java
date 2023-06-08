@@ -21,18 +21,14 @@ public class JPAUtil {
 /*
  * 	public static SessionFactory factory;
 
-	// to disallow creating objects by other classes.
-	private JPAUtil() {
-	}
-
-	// maling the Hibernate SessionFactory object as singleton
-	public static synchronized SessionFactory getSessionFactory() {
-		if (factory == null) {
-			factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		}
-		return factory;
-	}
-}
+  try(InputStream jpaFileInput = new FileInputStream("C:\\teste.properties")) {
+            Properties properties = new Properties();
+            properties.load(jpaFileInput);
+            entityManagerFactory = Persistence.createEntityManagerFactory("financas", properties);
+        }
+        catch(Exception ex) {
+            //Tratamento de exceção
+        }
 
  * 
  */

@@ -82,6 +82,12 @@ public class RotaPlanejadaResouce  implements IRestApi<RotaPlanejada> {
 	}
 	
 	@GET
+	@Path("/v2/setor/resume/{data}/{fiscal}")
+	public ArrayList<SetorResume> setorResumeV2(@PathParam("data") String data, @PathParam("fiscal") Long fiscalId ) {
+		return service.getRotaSetorResumeV2(data, fiscalId);
+	}
+	
+	@GET
 	@Path("/circuito/resume/{data}/{id}")
 	public ArrayList<CircuitoResume> circuitorResume(@PathParam("data") String data, @PathParam("id") Long id) {
 		return service.getRotaCircuitoResume(data, id);

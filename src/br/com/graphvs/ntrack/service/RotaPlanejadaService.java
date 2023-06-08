@@ -52,6 +52,10 @@ private RotaPlanejadaDAO dao = new RotaPlanejadaDAO();
 		return dao.getRotaSetorResumeV2(data);
 	}
 	
+	public ArrayList<SetorResume> getRotaSetorResumeV2(String data, Long fiscalId) {
+		return dao.getRotaSetorResumeV2(data, fiscalId);
+	}
+	
 	
 	
 	public ArrayList<CircuitoResume> getRotaCircuitoResume(String data, Long id) {

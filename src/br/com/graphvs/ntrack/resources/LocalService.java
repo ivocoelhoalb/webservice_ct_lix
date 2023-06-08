@@ -18,7 +18,7 @@ import br.com.graphvs.ntrack.util.Utils;
 public class LocalService {
 
 	private static boolean servico = false;
-	private String dataIncial = "2023-02-07";
+	private String dataIncial = "2023-05-25";
 	public static final int DISTANCIA_AVALIACAO_PROXIMIDADE = 26;
 	public static final int DISTANCIA_PRECISAO_GPS = 50;
 

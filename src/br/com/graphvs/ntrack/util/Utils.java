@@ -127,7 +127,8 @@ public class Utils {
 
 			String dates = "";
 			if (days > 0)
-				dates = days + " Days ";
+				//dates = days + " Days ";
+				hrs+=24*days;
 
 			dates += fill2((int) hrs) + "h ";
 			dates += fill2((int) min) + "m ";

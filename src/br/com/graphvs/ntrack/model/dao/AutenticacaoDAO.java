@@ -73,6 +73,7 @@ public class AutenticacaoDAO {
 			autenticacaoManaged.setToken(autenticacao.getToken());
 			autenticacaoManaged.setValidade(autenticacao.getValidade());
 			autenticacaoManaged.setGestorId(autenticacao.getGestorId());
+			autenticacaoManaged.setFiscalId(autenticacao.getFiscalId());
 			autenticacaoManaged.setMotoristaId(autenticacao.getMotoristaId());
 			autenticacaoManaged.setLogado(autenticacao.getLogado());
 			em.getTransaction().commit();
