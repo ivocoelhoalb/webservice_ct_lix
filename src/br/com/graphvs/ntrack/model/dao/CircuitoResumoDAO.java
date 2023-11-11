@@ -52,6 +52,8 @@ public class CircuitoResumoDAO {
 
 	}
 
+	
+	
 	public void atualizaCircuitosDoSetor(String data, Setor setor) {
 
 		EntityManager em = JPAUtil.getEntityManager();

@@ -82,6 +82,13 @@ public class Utils {
 		cal.add(Calendar.DATE, days); // minus number would decrement the days
 		return cal.getTime();
 	}
+	
+	public static Date addHoras(Date date, int horas) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.HOUR, horas); // minus number would decrement the days
+		return cal.getTime();
+	}
 
 	public static double calculaDistancia(List<Rastreamento> rastreamentos) {
 		double distanciaPercorridaEmKm = 0;

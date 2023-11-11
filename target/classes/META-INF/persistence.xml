@@ -17,7 +17,7 @@
 			<!-- Propriedades para conexão com o banco de dados -->
 			
 		    <!-- ATUALIZAR BANCO AQUI  -->
-			<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_conservita_jales?createDatabaseIfNotExist=true" />  
+			<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://54.39.173.150:3306/lix_piloto?createDatabaseIfNotExist=true" />  
 		
 			<property name="javax.persistence.jdbc.password" value="sisgraphlix" />  			
 			<property name="javax.persistence.jdbc.user" value="lix" />
@@ -45,10 +45,14 @@
 
 
 <!--
-
+lix_desenv
 lix_piloto
 lix_conservita_andradina
+lix_conservita_camanducaia
 lix_conservita_jales
+lix_conservita_sao_manuel
+lix_conservita_santa_cruz_rio_pardo
+
 				
  
 -->

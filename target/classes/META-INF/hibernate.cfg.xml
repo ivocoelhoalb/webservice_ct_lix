@@ -13,19 +13,6 @@
 		<property name="hibernate.use_sql_comments" >false</property>
 		<property name="hbm2ddl.auto">update</property>
 		
-		<!-- Livro
-		
-		<mapping class="br.com.graphvs.ntrack.model.domain.Cliente" />
-		<mapping class="br.com.graphvs.ntrack.model.domain.Motorista" />
-		<mapping class="br.com.graphvs.ntrack.model.domain.Autenticacao" />
-		<mapping class="br.com.graphvs.ntrack.model.domain.Rastreamento" />
-		<mapping class="br.com.graphvs.ntrack.model.domain.Rota" />
-		<mapping class="br.com.graphvs.ntrack.model.domain.Atendimento" />
-		<mapping class="br.com.graphvs.ntrack.model.domain.Visita" />
-		<mapping class="br.com.graphvs.ntrack.model.domain.ColetaAterro" />
-		<mapping class="br.com.graphvs.ntrack.model.domain.ColetaSequencial" />
-		
-		 -->
 		
 	</session-factory>
 </hibernate-configuration>

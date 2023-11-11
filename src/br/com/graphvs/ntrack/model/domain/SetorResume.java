@@ -28,6 +28,8 @@ public class SetorResume {
 	private int totalCircuitos;
 	private Long rota_id;
 	private String ultimaAtualizacao;
+	private Long motorista_id;
+	private String nomeMotorista;
 
 	public Long getRota_id() {
 		return rota_id;
@@ -49,7 +51,7 @@ public class SetorResume {
 
 	public SetorResume(Long id, Long codigoSetor, String codigoExterno, double kmPrevisto, double kmRealizado,
 			int segmentos, int segmentosRealizados, int pontos, int pontosRealizados, double cargaColetada,
-			int totalCircuitos, String data, Long rotaId, String ultimaAtualizacao) {
+			int totalCircuitos, String data, Long rotaId, String ultimaAtualizacao, String nomeMotorista, Long motoristaId) {
 		this.id = id;
 		this.codigoSetor = codigoSetor;
 		this.codigoExterno = codigoExterno;
@@ -64,10 +66,32 @@ public class SetorResume {
 		this.data = data;
 		this.rota_id = rotaId;
 		this.ultimaAtualizacao = ultimaAtualizacao;
+		this.nomeMotorista = nomeMotorista;
+		this.rota_id = rotaId;
 
 	}
 	
 	
+	
+	
+	
+	
+
+	public Long getMotorista_id() {
+		return motorista_id;
+	}
+
+	public void setMotorista_id(Long motorista_id) {
+		this.motorista_id = motorista_id;
+	}
+
+	public String getNomeMotorista() {
+		return nomeMotorista;
+	}
+
+	public void setNomeMotorista(String nomeMotorista) {
+		this.nomeMotorista = nomeMotorista;
+	}
 
 	public String getUltimaAtualizacao() {
 		return ultimaAtualizacao;

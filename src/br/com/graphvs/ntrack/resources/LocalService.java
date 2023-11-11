@@ -18,7 +18,7 @@ import br.com.graphvs.ntrack.util.Utils;
 public class LocalService {
 
 	private static boolean servico = false;
-	private String dataIncial = "2023-05-25";
+	private String dataIncial = "2023-06-01";
 	public static final int DISTANCIA_AVALIACAO_PROXIMIDADE = 26;
 	public static final int DISTANCIA_PRECISAO_GPS = 50;
 
@@ -86,13 +86,13 @@ public class LocalService {
 	}
 
 	private void updateSetoresResumo() {
-		new SetorResumoDAO().updateSetorResumo(Utils.decrementaDataInciailD1(dataIncial));
+		//new SetorResumoDAO().updateSetorResumo(Utils.decrementaDataInciailD1(dataIncial));
 		new SetorResumoDAO().updateSetorResumo(dataIncial);
 
 	}
 	
 	protected void updateCircuitosResumo() {
-		new CircuitoResumoDAO().updateCircuitoResumo(Utils.decrementaDataInciailD1(dataIncial));
+		//new CircuitoResumoDAO().updateCircuitoResumo(Utils.decrementaDataInciailD1(dataIncial));
 		new CircuitoResumoDAO().updateCircuitoResumo(dataIncial);
 
 	}
