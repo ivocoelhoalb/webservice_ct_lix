@@ -11,7 +11,7 @@ import br.com.graphvs.ntrack.exceptions.ErrorCode;
 import br.com.graphvs.ntrack.model.domain.Rastreamento;
 import br.com.graphvs.ntrack.model.domain.Sequencial;
 import br.com.graphvs.ntrack.model.domain.SequencialColetado;
-import br.com.graphvs.ntrack.resources.LocalService;
+import br.com.graphvs.ntrack.service.LocalService;
 import br.com.graphvs.ntrack.util.DistanceCalculator;
 import br.com.graphvs.ntrack.util.JPAUtil;
 
@@ -127,6 +127,7 @@ public class SequencialDAO implements IRestApi<Sequencial> {
 		atual.setLatordem(sequencial.getLatordem());
 		atual.setLonordem(sequencial.getLonordem());
 		atual.setNumero(sequencial.getNumero());
+		atual.setServico(sequencial.getServico());
 		return atual;
 	}
 

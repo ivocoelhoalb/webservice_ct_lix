@@ -21,6 +21,7 @@ public class SequencialColetado implements Serializable{
     private String data;
     private String logradouroPercurso;
     private int tamanhoPercurso;
+    private String servico;
 	
 	
     public int getTotalColetado() {
@@ -111,5 +112,11 @@ public class SequencialColetado implements Serializable{
 	public void setCircuito_id(Long circuito_id) {
 		this.circuito_id = circuito_id;
 	}
+    public String getServico() {
+        return this.servico;
+    }
+    public void setServico(String servico) {
+        this.servico = servico;
+    }
 
 }

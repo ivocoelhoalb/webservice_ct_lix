@@ -32,12 +32,13 @@ public class CircuitoResume {
 	private double lonfinal;
 	private String data;
 	private String ultimaAtualizacao;
+	private String motorista;
 	
 	
 	
 	public CircuitoResume(Long id, Long codigoCircuito, String codigoExterno, double kmPrevisto, double kmRealizado,
 			int segmentos, int segmentosRealizados, double cargaColetada, String duracao, int viagem, double latinicial,
-			double loninicial, double latfinal, double lonfinal, String data, String ultimaAtualizacao,Long codigoSetor, Long rotaId) {
+			double loninicial, double latfinal, double lonfinal, String data, String ultimaAtualizacao,String motorista, Long codigoSetor, Long rotaId) {
 		super();
 		this.id = id;
 		this.codigoCircuito = codigoCircuito;
@@ -57,11 +58,26 @@ public class CircuitoResume {
 		this.ultimaAtualizacao = ultimaAtualizacao;
 		this.codigoSetor = codigoSetor;
 		this.rota_id = rotaId;
+		this.motorista = motorista;
 	}
 	
 	
 	
 	
+	public String getMotorista() {
+		return motorista;
+	}
+
+
+
+
+	public void setMotorista(String motorista) {
+		this.motorista = motorista;
+	}
+
+
+
+
 	public String getUltimaAtualizacao() {
 		return ultimaAtualizacao;
 	}
