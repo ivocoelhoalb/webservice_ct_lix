@@ -46,6 +46,11 @@ private MotoristaDAO dao = new MotoristaDAO();
 		return dao.getMotoristasComRota(data);
 	}
 	
+	public Motorista getMotoristaId(Long id) {
+		return dao.getById(id);
+	}
+	
+	
 	public Motorista updateRastreamento(Motorista mototista) {
 		return dao.updateRastreamento(mototista);
 	}

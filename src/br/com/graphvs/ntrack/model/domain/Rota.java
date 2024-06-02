@@ -9,6 +9,8 @@ import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import br.com.graphvs.ntrack.util.Utils;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
@@ -68,14 +70,14 @@ public class Rota {
 	public Date getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Date dataIncio) {
-		this.dataInicio = dataIncio;
+	public void setDataInicio(Date dataIncio) {		
+		this.dataInicio = Utils.addHoras(dataIncio, 3);
 	}
 	public Date getDataFim() {
 		return dataFim;
 	}
 	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
+		this.dataFim = Utils.addHoras(dataFim, 3);
 	}
 	public void setData(String data) {
 		this.data = data;

@@ -22,12 +22,9 @@ public class LogAcesso {
 	private String aparelho;
 	private String mac;
 	private String versao;
-	private String precisao;
-	private int proximidade;
 	private boolean centralizar;
 	private boolean visao3d;
 	private boolean seguirRota;
-	private boolean sons;
 	private boolean noturno;
 	private double latitude;
 	private double longitude;
@@ -93,18 +90,6 @@ public class LogAcesso {
 	public void setVersao(String versao) {
 		this.versao = versao;
 	}
-	public String getPrecisao() {
-		return precisao;
-	}
-	public void setPrecisao(String precisao) {
-		this.precisao = precisao;
-	}
-	public int getProximidade() {
-		return proximidade;
-	}
-	public void setProximidade(int proximidade) {
-		this.proximidade = proximidade;
-	}
 	public boolean isCentralizar() {
 		return centralizar;
 	}
@@ -122,12 +107,6 @@ public class LogAcesso {
 	}
 	public void setSeguirRota(boolean seguirRota) {
 		this.seguirRota = seguirRota;
-	}
-	public boolean isSons() {
-		return sons;
-	}
-	public void setSons(boolean sons) {
-		this.sons = sons;
 	}
 	public boolean isNoturno() {
 		return noturno;

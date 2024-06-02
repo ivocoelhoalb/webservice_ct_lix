@@ -5,31 +5,60 @@ import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 public class Motorista {
-	
-	@Id
-    private Long id;
-    private String nome;
-    private double latitude;
-    private double longitude;
-    private String data;
-    private Long clientes;
-    
-    
-    public Motorista() {
-    }
 
-    public Motorista(Long id, String nome, double latitude, double longitude, String data, Long clientes) {
+	@Id
+	private Long id;
+	private String nome;
+	private double latitude;
+	private double longitude;
+	private String data;
+	private int precisao;
+	private int proximidade;
+	private boolean seguirRota;
+
+	public Motorista(Long id, String nome, double latitude, double longitude, String data, int precisao,
+			int proximidade, boolean seguirRota) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.data = data;
-		this.clientes = clientes;
+		this.precisao = precisao;
+		this.proximidade = proximidade;
+		this.seguirRota = seguirRota;
+	}
+
+	public Motorista() {
+	}
+	
+	
+
+	public int getPrecisao() {
+		return precisao;
+	}
+
+	public void setPrecisao(int precisao) {
+		this.precisao = precisao;
+	}
+
+	public int getProximidade() {
+		return proximidade;
+	}
+
+	public void setProximidade(int proximidade) {
+		this.proximidade = proximidade;
+	}
+
+	public boolean isSeguirRota() {
+		return seguirRota;
+	}
+
+	public void setSeguirRota(boolean seguirRota) {
+		this.seguirRota = seguirRota;
 	}
 
 	public String getData() {
@@ -41,43 +70,35 @@ public class Motorista {
 	}
 
 	public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public double getLatitude() {
-        return latitude;
-    }
+	public double getLatitude() {
+		return latitude;
+	}
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
 
-    public double getLongitude() {
-        return longitude;
-    }
+	public double getLongitude() {
+		return longitude;
+	}
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-    
-    public Long getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(Long clientes) {
-        this.clientes = clientes;
-    }
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
 
 }

@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import br.com.graphvs.ntrack.exceptions.DAOException;
 import br.com.graphvs.ntrack.exceptions.ErrorCode;
 import br.com.graphvs.ntrack.model.domain.CircuitoResume;
+import br.com.graphvs.ntrack.model.domain.Motorista;
 import br.com.graphvs.ntrack.model.domain.Setor;
 import br.com.graphvs.ntrack.model.domain.SetorResume;
 import br.com.graphvs.ntrack.util.JPAUtil;
@@ -35,6 +37,7 @@ public class SetorResumoDAO {
 
 			SetorResume setorResumoCalculado = setorResumoDAO.calculaDadosAtuaisResumoDoSetor(data, em, setor);
 			SetorResume setorResumoExistente = setorResumoDAO.getSetorResumeExistente(em, data, setor);
+			 
 
 			if (setorResumoExistente != null) {
 
@@ -51,6 +54,8 @@ public class SetorResumoDAO {
 					setorResumoExistente.setRota_id(setorResumoCalculado.getRota_id());
 					setorResumoExistente.setDuracao(setorResumoCalculado.getDuracao());
 					setorResumoExistente.setUltimaAtualizacao(setorResumoCalculado.getUltimaAtualizacao());
+					setorResumoExistente.setNomeMotorista(setorResumoCalculado.getNomeMotorista());
+					setorResumoExistente.setMotorista_id(setorResumoCalculado.getMotorista_id());
 					em.getTransaction().commit();
 					if (LOG)
 						System.out.println("-Atualizando SETOR " + setor.getExterno_id() + " na base");
@@ -70,6 +75,15 @@ public class SetorResumoDAO {
 
 		if (LOG)
 			System.out.println("Finalizando SETORES");
+	}
+
+	private Motorista getMotorista(EntityManager em, String data, Setor setor) {
+		String SQL = "FROM Motorista WHERE id in(select r.motorista_id from Rota r where r.data ='" + data + "' and setor_externo_id ='" + setor.getExterno_id()+"')";
+		TypedQuery<Motorista> query =  em.createQuery(SQL, Motorista.class);
+		List<Motorista> m =  query.getResultList();
+		
+		
+		return m.get(0);
 	}
 
 	public void insereSetorResumoNaBase(EntityManager em, SetorResume setorResume) {
@@ -100,7 +114,9 @@ public class SetorResumoDAO {
 		int coletasPrevistos = 0;
 		int coletasRealizadas = 0;
 		int cargaColetada = 0;
-		String ultimaAtualizacao = "0000-00-20T00:00:00";
+		String ultimaAtualizacao = "0000-00-00T00:00:00";
+		
+		Motorista motorista = getMotorista(em, data,setor);
 
 		CircuitoResumoDAO circuitoResumoDAO = new CircuitoResumoDAO();
 
@@ -147,6 +163,11 @@ public class SetorResumoDAO {
 		setorResume.setUltimaAtualizacao(ultimaAtualizacao);
 
 		setorResume.setData(data);
+		
+		setorResume.setNomeMotorista(motorista.getNome());
+		
+		setorResume.setMotorista_id(motorista.getId());
+		
 		return setorResume;
 	}
 

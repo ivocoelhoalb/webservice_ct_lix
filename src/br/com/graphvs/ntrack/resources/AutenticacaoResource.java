@@ -14,6 +14,7 @@ import br.com.graphvs.ntrack.model.domain.Autenticacao;
 import br.com.graphvs.ntrack.model.domain.Credentials;
 import br.com.graphvs.ntrack.model.domain.Token;
 import br.com.graphvs.ntrack.service.AutenticacaoService;
+import br.com.graphvs.ntrack.service.LocalService;
 
 @Path("/autenticacao")
 public class AutenticacaoResource {
@@ -43,6 +44,8 @@ public class AutenticacaoResource {
 		autenticacao.setLogado(new Date());
 		
 		service.updateAutenticacao(autenticacao);
+		
+		LocalService.startPingApiService();
 		
 
 		// Return the token on the response

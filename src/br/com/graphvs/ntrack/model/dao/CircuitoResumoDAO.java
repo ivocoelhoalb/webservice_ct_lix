@@ -14,7 +14,7 @@ import br.com.graphvs.ntrack.model.domain.Percurso;
 import br.com.graphvs.ntrack.model.domain.Rastreamento;
 import br.com.graphvs.ntrack.model.domain.Sequencial;
 import br.com.graphvs.ntrack.model.domain.Setor;
-import br.com.graphvs.ntrack.resources.LocalService;
+import br.com.graphvs.ntrack.service.LocalService;
 import br.com.graphvs.ntrack.util.DistanceCalculator;
 import br.com.graphvs.ntrack.util.JPAUtil;
 import br.com.graphvs.ntrack.util.Utils;
@@ -52,6 +52,8 @@ public class CircuitoResumoDAO {
 
 	}
 
+	
+	
 	public void atualizaCircuitosDoSetor(String data, Setor setor) {
 
 		EntityManager em = JPAUtil.getEntityManager();
@@ -153,7 +155,7 @@ public class CircuitoResumoDAO {
 				
 				em.getTransaction().commit();
 				if (LOG)
-					System.out.println("-Atualizando CIRCUITO "+circuitoResumeExistente.getCodigoExterno()+" na base");
+					System.out.println("-CIRCUITO "+circuitoResumeExistente.getCodigoExterno()+" na base");
 
 			} else {
 				CircuitoResume circuitoResume = new CircuitoResume();

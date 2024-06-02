@@ -6,15 +6,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
+
 @Entity
 public class Status {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String iniciado;
-    private String checkpoint;
-    private String finalizado;
+	private int x = 0;
+    private String servico;
+    private String status;
+    private String inicio;
+    private String atualizado;
+   
     
     public Status() {
     }
@@ -27,34 +31,46 @@ public class Status {
 		this.id = id;
 	}
 
-	public String getCheckpoint() {
-		return checkpoint;
+	public String getServico() {
+		return servico;
 	}
 
-	public void setCheckpoint(String checkpoint) {
-		this.checkpoint = checkpoint;
+	public void setServico(String servico) {
+		this.servico = servico;
 	}
 
-	public String getIniciado() {
-		return iniciado;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setIniciado(String iniciado) {
-		this.iniciado = iniciado;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public String getFinalizado() {
-		return finalizado;
+	public String getInicio() {
+		return inicio;
 	}
 
-	public void setFinalizado(String finalizado) {
-		this.finalizado = finalizado;
+	public void setInicio(String inicio) {
+		this.inicio = inicio;
 	}
-	
-	
-    
-    
 
- 
 
+
+	public String getAtualizado() {
+		return atualizado;
+	}
+
+	public void setAtualizado(String atualizado) {
+		this.atualizado = atualizado;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x1) {
+		this.x = x1;
+	}
 }
+	

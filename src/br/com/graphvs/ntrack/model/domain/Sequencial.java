@@ -23,6 +23,7 @@ public class Sequencial implements Serializable{
 	private double latordem;
 	private double lonordem;
 	private int numero;
+	private String servico;
 	
 	
 	public Long getId() {
@@ -64,6 +65,14 @@ public class Sequencial implements Serializable{
 
 	public void setCircuito_id(Long circuito_id) {
 		this.circuito_id = circuito_id;
+	}
+	
+	 public String getServico() {
+	     return this.servico;
+	}
+	 
+	public void setServico(String servico) {
+	     this.servico = servico;
 	}
 
 }

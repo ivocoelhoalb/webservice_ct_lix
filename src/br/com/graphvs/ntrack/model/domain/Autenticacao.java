@@ -29,11 +29,11 @@ public class Autenticacao {
 	
 	
 
-	public Long getFiscal_id() {
+	public Long getFiscalId() {
 		return fiscal_id;
 	}
 
-	public void setFiscal_id(Long fiscal_id) {
+	public void setFiscalId(Long fiscal_id) {
 		this.fiscal_id = fiscal_id;
 	}
 

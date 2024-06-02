@@ -10,16 +10,42 @@ import br.com.graphvs.ntrack.model.domain.Status;
 import br.com.graphvs.ntrack.util.JPAUtil;
 import br.com.graphvs.ntrack.util.Utils;
 
+
 public class StatusDAO {
 
+	private final static String APIS = "APIS";
+	private final static String ONLINE = "ONLINE";
+	private final static String OFFLINE = "OFFLINE";
+	private final static int KEY_ON = 1;
+	private final static int KEY_OFF = 0;
 
-	public Status save() {
 
-		Status entidade = new Status();
-		entidade.setCheckpoint(Utils.getDateTime());
-		entidade.setIniciado(Utils.getDateTime());
-
+	public void saveNovoAPI() {
+		
 		EntityManager em = JPAUtil.getEntityManager();
+		
+		List<Status> statusList = em.createQuery("FROM Status WHERE servico = '" + APIS + "'", Status.class).getResultList();
+		Status entidadeEncontrada = new Status();
+		
+		if(!statusList.isEmpty()) {
+		
+			entidadeEncontrada = statusList.get(0);
+			
+			em.getTransaction().begin();
+			em.remove(entidadeEncontrada);
+			em.getTransaction().commit();
+		
+		}
+		
+		Status entidade = new Status();
+
+		entidade.setId(null);
+		entidade.setX(KEY_ON);
+		entidade.setServico(APIS);
+		entidade.setStatus(ONLINE);
+		entidade.setInicio(Utils.getDateTime());
+		entidade.setAtualizado(Utils.getDateTime());
+
 
 		try {
 			em.getTransaction().begin();
@@ -31,34 +57,34 @@ public class StatusDAO {
 		} finally {
 			em.close();
 		}
-		return entidade;
 	}
 
-	public Status update(boolean checkPoint) {
+	public void updateApi() throws Exception {
 		EntityManager em = JPAUtil.getEntityManager();
 		Status ultimoStatus = null;
 		List<Status> statusList = null;
 
 		try {
-			statusList = em.createQuery("FROM Status order by id DESC", Status.class).getResultList();
+			statusList = em.createQuery("FROM Status WHERE servico = '" + APIS + "'", Status.class).getResultList();
 
 		} catch (RuntimeException ex) {
 			throw new DAOException("ERRO2" + ex.getMessage(), ErrorCode.SERVER_ERROR.getStatusCode());
 		}
-
-		if (statusList.isEmpty()) {
-			throw new DAOException("ERRO3", ErrorCode.UNAUTHORIZED.getStatusCode());
-		}
+		
+		ultimoStatus = statusList.get(0);
 
 		try {
 			em.getTransaction().begin();
-			ultimoStatus = statusList.get(0);
-			ultimoStatus.setCheckpoint(Utils.getDateTime());
-			if (!checkPoint) {
-				ultimoStatus.setFinalizado(Utils.getDateTime());
-			}
+			ultimoStatus.setAtualizado(Utils.getDateTime());
 
+			if(ultimoStatus.getX() == KEY_ON) 
+				ultimoStatus.setStatus(ONLINE);
+			
+			if(ultimoStatus.getX() == KEY_OFF) 
+				ultimoStatus.setStatus(OFFLINE);
+			
 			em.getTransaction().commit();
+
 		} catch (NullPointerException ex) {
 			em.getTransaction().rollback();
 		} catch (RuntimeException ex) {
@@ -68,15 +94,12 @@ public class StatusDAO {
 		} finally {
 			em.close();
 		}
-		return ultimoStatus;
+		
+		if(ultimoStatus.getX() == KEY_OFF)
+			throw new Exception("KEY OFF");
+
+
 	}
 
-	
-	
-	
 
-
-
-	
-
-	}
+}
